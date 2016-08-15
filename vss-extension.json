@@ -1,0 +1,68 @@
+{
+    "manifestVersion": 1,
+    "id": "opencover",
+    "name": "Open Cover",
+    "version": "1.5.1",
+    "public": true,
+    "publisher": "NikitaEgorov",
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],    
+    "description": "Task to run open cover.",
+    "categories": [
+        "Build and release"
+    ],
+    "tags": [
+        "release",
+        "build",
+        "open",
+        "cover"
+    ],
+    "links": {
+        "learn": {
+            "uri": "https://github.com/NikitaEgorov/vsts-opencover-task#readme"
+        },
+        "support": {
+            "uri": "https://github.com/NikitaEgorov/vsts-opencover-task/issues"  
+        }
+    },
+    "icons": {
+        "default": "images/extension-icon.png"
+    },
+    "branding": {
+        "color": "#1C3272",
+        "theme": "dark"
+    },
+    "screenshots": [
+        {
+            "path": "images/screenshot-01.png"
+        }
+    ],
+    "content": {
+        "details": {
+            "path": "README.md"
+        },
+        "license": {
+            "path": "LICENSE"
+        }
+    },
+    "files": [
+        {
+            "path": "task"
+        }
+    ],
+    "contributions": [
+        {
+            "id": "opencover-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "task"
+            }
+        }
+    ]
+}

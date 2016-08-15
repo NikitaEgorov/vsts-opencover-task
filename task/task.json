@@ -1,0 +1,77 @@
+{
+  "id": "06B58B3C-B32A-4076-A21D-F09CBECB53D1",
+  "name": "opencover",
+  "friendlyName": "OpenCover",
+  "description": "Run OpenCover",
+  "helpMarkDown": "[More Information](https://github.com/NikitaEgorov/vsts-opencover-task#readme)",
+  "category": "Utility",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "author": "Nikita Egorov",
+  "version": {
+    "Major": 1,
+    "Minor": 0,
+    "Patch": 0
+  },
+  "minimumAgentVersion": "1.92.0",
+  "inputs": [
+    {
+      "name": "opencoverExe",
+      "type": "filePath",
+      "label": "Open Cover Path",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "A string value pointing to the open cover executable."
+    },
+    {
+      "name": "target",
+      "type": "filePath",
+      "label": "Path to target",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "A string value pointing to the target being executed by opencover executable. Files provided in the source will be used as the arguments for this target."
+    },
+    {
+      "name": "targetargs",
+      "type": "string",
+      "label": "Target arguments",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Arguments to be passed to the target process."
+    },
+    {
+      "name": "filter",
+      "type": "string",
+      "label": "Filters",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "A list of filters to apply to selectively include or exclude assemblies and classes from coverage results."
+    },
+    {
+      "name": "excludebyfile",
+      "type": "string",
+      "label": "Exclude by file",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "Exclude a class (or methods) by filter(s) that match the filenames. An * can be used as a wildcard"
+    },
+    {
+      "name": "registerUser",
+      "type": "boolean",
+      "label": "Register User",
+      "defaultValue": "true",
+      "required": false,
+      "helpMarkDown": "A boolean value indictating if the `-register:user` switch should be added to the generated command."
+    }
+  ],
+  "instanceNameFormat": "Open Cover",
+  "execution": {
+    "PowerShell": {
+      "target": "$(currentDirectory)\\openCover.ps1",
+      "argumentFormat": "",
+      "workingDirectory": "$(System.DefaultWorkingDirectory)"
+    }
+  }
+}
