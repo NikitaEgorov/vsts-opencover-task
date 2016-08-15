@@ -4,10 +4,10 @@ param(
 	[string] $opencoverExe,
 	# [string] $reportGeneratorExe,
 	[string] $target = "$PWD\NUnit-2.6.4\bin\nunit-console.exe",
-	[string] $targetargs = "e:\TFS\EnterpriseDirectories\trunk\_Output\Server\bin\Debug\EnterpriseDirectories.Domain.Tests.Unit.dll /framework=4.0 /noshadow /nologo /out:TestResult.txt /err:StdErr.txt",
+	[string] $targetargs = "Domain.Tests.Unit.dll /framework=4.0 /noshadow /nologo /out:TestResult.txt /err:StdErr.txt",
     [string] $output,
     [string] $registerUser = "true",
-    [string] $filter = "+[EnterpriseDirectories.BLL]* +[EnterpriseDirectories.Domain]* -[*Tests.Unit]*",
+    [string] $filter = "+[BLL]* +[Domain]* -[*Tests.Unit]*",
     [string] $excludebyfile = "*\*Generated.cs"
     # [string] $reportTypes
 )
