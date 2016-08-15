@@ -16,6 +16,13 @@
     "Patch": 0
   },
   "minimumAgentVersion": "1.92.0",
+  "groups": [
+    {
+      "name": "advanced",
+      "displayName": "Advanced",
+      "isExpanded": false
+    }
+  ],
   "inputs": [
     {
       "name": "opencoverExe",
@@ -23,27 +30,40 @@
       "label": "Open Cover Path",
       "defaultValue": "",
       "required": false,
-      "helpMarkDown": "A string value pointing to the open cover executable."
+      "helpMarkDown": "A string value pointing to the open cover executable.",
+      "groupName": "advanced"
     },
     {
       "name": "target",
       "type": "filePath",
       "label": "Path to target",
       "defaultValue": "",
-      "required": true,
-      "helpMarkDown": "A string value pointing to the target being executed by opencover executable. Files provided in the source will be used as the arguments for this target."
+      "required": false,
+      "helpMarkDown": "A string value pointing to the target being executed by opencover executable. Files provided in the source will be used as the arguments for this target. By default use embedded NUnit",
+      "groupName": "advanced"
     },
     {
       "name": "targetargs",
-      "type": "string",
+      "type": "multiLine",
       "label": "Target arguments",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "Arguments to be passed to the target process."
+      "helpMarkDown": "Arguments to be passed to the target process.",
     },
+
+    {
+      "name": "applyDefaultNUnitArgs",
+      "type": "boolean",
+      "label": "Apply default NUnit target arguments",
+      "defaultValue": "true",
+      "required": false,
+      "helpMarkDown": "Apply default NUnit target arguments `/framework=4.0 /noshadow /nologo`",
+      "groupName": "advanced"
+    },
+
     {
       "name": "filter",
-      "type": "string",
+      "type": "multiLine",
       "label": "Filters",
       "defaultValue": "",
       "required": false,
@@ -51,7 +71,7 @@
     },
     {
       "name": "excludebyfile",
-      "type": "string",
+      "type": "multiLine",
       "label": "Exclude by file",
       "defaultValue": "",
       "required": false,
@@ -63,7 +83,8 @@
       "label": "Register User",
       "defaultValue": "true",
       "required": false,
-      "helpMarkDown": "A boolean value indictating if the `-register:user` switch should be added to the generated command."
+      "helpMarkDown": "A boolean value indictating if the `-register:user` switch should be added to the generated command.",
+      "groupName": "advanced"
     }
   ],
   "instanceNameFormat": "Open Cover",
